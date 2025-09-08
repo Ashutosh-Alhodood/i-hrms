@@ -8,7 +8,7 @@ frontend:
       commands:
         - npm run build
   artifacts:
-    # Amplify will look inside `out` for static exported files (Next with output: "export")
+    # point Amplify to the static export directory created by Next output: "export"
     baseDirectory: out
     files:
       - '**/*'
