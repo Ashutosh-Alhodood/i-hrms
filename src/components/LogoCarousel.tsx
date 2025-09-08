@@ -1,5 +1,6 @@
 'use client'
 import React from 'react'
+import Image from 'next/image'
 
 const LOGOS = [
   '/logos/logo1.svg',
@@ -16,8 +17,20 @@ export default function LogoCarousel({ logos = LOGOS }: { logos?: string[] }) {
       <div className="relative">
         <div className="flex gap-6 py-6 animate-marquee will-change-transform">
           {logos.concat(logos).map((src, i) => (
-            <div key={src + '-' + i} className="flex items-center justify-center min-w-[160px] h-12 bg-white border rounded shadow-sm">
-              <img src={src} alt={`client-${i}`} className="h-8 object-contain" />
+            <div
+              key={src + '-' + i}
+              className="flex items-center justify-center min-w-[160px] h-12 bg-white border rounded shadow-sm"
+            >
+              <div className="relative w-32 h-8">
+                <Image
+                  src={src}
+                  alt={`client-${i}`}
+                  fill
+                  className="object-contain"
+                  sizes="128px"
+                  priority={i < logos.length} // preload first set
+                />
+              </div>
             </div>
           ))}
         </div>
@@ -25,8 +38,12 @@ export default function LogoCarousel({ logos = LOGOS }: { logos?: string[] }) {
 
       <style jsx>{`
         @keyframes marquee {
-          0% { transform: translateX(0%); }
-          100% { transform: translateX(-50%); }
+          0% {
+            transform: translateX(0%);
+          }
+          100% {
+            transform: translateX(-50%);
+          }
         }
 
         .animate-marquee {
@@ -34,7 +51,9 @@ export default function LogoCarousel({ logos = LOGOS }: { logos?: string[] }) {
         }
 
         @media (prefers-reduced-motion: reduce) {
-          .animate-marquee { animation: none; }
+          .animate-marquee {
+            animation: none;
+          }
         }
       `}</style>
     </div>

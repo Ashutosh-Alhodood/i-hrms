@@ -1,7 +1,9 @@
+// src/components/CommunitySection.tsx
 'use client'
 
 import React from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 
 const avatars = [
   '/avatars/av1.jpg',
@@ -73,7 +75,7 @@ export default function CommunitySection() {
                 {/* center CTA */}
                 <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
                   <Link href="/community" className="inline-flex items-center justify-center px-8 py-4 rounded-full bg-transparent border border-white/10 text-white text-lg font-medium shadow-[0_8px_32px_rgba(71,80,255,0.12)]">
-                    <span className="px-6 py-2 rounded-full bg-gradient-to-r from-[#6f5cff] to-[#4b3cff] text-white shadow-sm">Join our Community. It’s FREE</span>
+                    <span className="px-6 py-2 rounded-full bg-gradient-to-r from-[#6f5cff] to-[#4b3cff] text-white shadow-sm">Join our Community. It&apos;s FREE</span>
                     <svg className="ml-4 w-5 h-5" viewBox="0 0 24 24" fill="none" aria-hidden><path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/></svg>
                   </Link>
                 </div>
@@ -106,7 +108,7 @@ export default function CommunitySection() {
   )
 }
 
-/* Avatar helper component */
+/* Avatar helper component using next/image (fixes next lint warning about <img>) */
 function Avatar({ pos, src, alt }: { pos: { left: string; top: string }; src: string; alt: string }) {
   return (
     <div
@@ -117,8 +119,8 @@ function Avatar({ pos, src, alt }: { pos: { left: string; top: string }; src: st
         transform: 'translate(-50%,-50%)'
       }}
     >
-      <div className="w-16 h-16 rounded-full ring-2 ring-white/10 overflow-hidden shadow-md bg-slate-900">
-        <img src={src} alt={alt} className="w-full h-full object-cover" />
+      <div className="w-16 h-16 rounded-full ring-2 ring-white/10 overflow-hidden shadow-md bg-slate-900 relative">
+        <Image src={src} alt={alt} fill sizes="64px" style={{ objectFit: 'cover' }} />
       </div>
     </div>
   )

@@ -10,20 +10,11 @@ import React from "react";
  * - Left: pill label + large heading + description
  * - Right: dark sales card with split artwork + CTA and deep drop shadow
  * - Centered FAQ accordion list
- * - Community CTA banner + footer
  *
- * NOTE: I included a Header component placeholder. Replace the import path
- * or remove `<Header />` if you already render the header globally.
+ * NOTE: Remove the Header import if you render the header globally.
  */
 
-// if you have a header component, update the path. Otherwise remove this import & element
-// import Header from "@/components/Header";
-
-const PLANS = [
-  { id: "starter", name: "Starter", price: "Free", bullets: ["Up to 10 employees", "Basic HR tools", "Email support"], cta: "Get started" },
-  { id: "growth", name: "Growth", price: "$9", per: "per user / month", bullets: ["Unlimited employees", "Payroll & compliance", "Priority email support"], popular: true, cta: "Start free trial" },
-  { id: "enterprise", name: "Enterprise", price: "Custom", bullets: ["SAML SSO", "Dedicated onboarding", "SLA & 24/7 support"], cta: "Contact sales" },
-];
+// const PLANS removed to avoid unused variable warning
 
 const FAQS = [
   "Can I customize Loyaltri to suit the specific needs of my organization?",
@@ -37,9 +28,6 @@ const FAQS = [
 export default function PricingPage() {
   return (
     <div className="antialiased text-slate-900">
-      {/* Replace or remove if using a global header */}
-      {/* <Header /> */}
-
       {/* HERO */}
       <section className="relative bg-white pt-32 pb-16">
         <div className="max-w-7xl mx-auto px-6">
@@ -55,7 +43,7 @@ export default function PricingPage() {
               </h1>
 
               <p className="mt-6 text-base md:text-lg text-slate-600 max-w-2xl">
-                We offer flexible pricing plans designed to meet the needs of businesses of all sizes. Whether you're a small startup or a large enterprise,
+                We offer flexible pricing plans designed to meet the needs of businesses of all sizes. Whether you&apos;re a small startup or a large enterprise,
                 we have a solution for you.
               </p>
 
@@ -94,7 +82,6 @@ export default function PricingPage() {
 
                     {/* right artwork panel */}
                     <div className="col-span-1 bg-[#11475b] p-6 flex items-center justify-center">
-                      {/* If you have a headset asset, replace src. Fallback to a simple SVG if not */}
                       <div className="w-28 h-28 rounded-md flex items-center justify-center">
                         <Image src="/contact-sales.webp" alt="headset" width={112} height={112} className="object-contain" />
                       </div>
@@ -122,7 +109,10 @@ export default function PricingPage() {
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-center mb-8">
             <h2 className="text-2xl md:text-3xl font-extrabold text-slate-900">FAQs</h2>
-            <p className="mt-3 text-slate-600">Everything you need to know about our pricing. Can't find the answer you're looking for? <Link href="/contact" className="text-indigo-600 underline">Chat to our friendly support team</Link>.</p>
+            <p className="mt-3 text-slate-600">
+              Everything you need to know about our pricing. Can&apos;t find the answer you&apos;re looking for?{" "}
+              <Link href="/contact" className="text-indigo-600 underline">Chat to our friendly support team</Link>.
+            </p>
           </div>
 
           <div className="mt-8 space-y-4">
@@ -130,7 +120,6 @@ export default function PricingPage() {
               <details key={idx} className="bg-white border border-slate-100 rounded-lg p-4">
                 <summary className="cursor-pointer list-none text-left font-medium text-slate-800">{q}</summary>
                 <div className="mt-3 text-sm text-slate-600">
-                  {/* placeholder answer — replace with copy as required */}
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce id neque in massa dictum aliquam. If you need a specific answer, contact our team.
                 </div>
               </details>
@@ -138,10 +127,6 @@ export default function PricingPage() {
           </div>
         </div>
       </section>
-
-     
-
-      
     </div>
   );
 }

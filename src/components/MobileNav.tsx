@@ -56,7 +56,9 @@ export default function MobileNav({ open, setOpen }: { open: boolean; setOpen: D
 
         <div className="mt-6 border-t border-white/6 pt-4">
           <Link href="/login" className="block text-center rounded-full bg-white text-black py-2 mb-3">Login</Link>
-          <Link href="/contact" className="block text-center rounded-full bg-gradient-to-r from-[#6f5cff] to-[#4b3cff] text-white py-2">Let's Connect</Link>
+         <Link href="/contact" className="block text-center rounded-full bg-gradient-to-r from-[#6f5cff] to-[#4b3cff] text-white py-2">
+  Let&apos;s Connect
+</Link>
         </div>
       </div>
     </div>

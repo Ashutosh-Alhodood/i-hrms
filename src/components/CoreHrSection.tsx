@@ -30,7 +30,7 @@ const CARDS = [
     title: "Interactive Feed",
     description:
       "Keep teams connected with a secure social feed for company updates, recognitions and announcements — built for internal engagement.",
-    image: "/assets.webp",
+    image: "/asset.webp",
     icon: ChatBubbleLeftRightIcon,
   },
   {
@@ -54,7 +54,7 @@ const CARDS = [
     title: "Offboarding Workflows",
     description:
       "Run consistent offboarding with checklists, asset returns and knowledge transfer tasks to reduce compliance risk and protect IP.",
-    image: "/efficency.webp",
+    image: "/efficiency.webp",
     icon: ArrowRightOnRectangleIcon,
   },
 ];

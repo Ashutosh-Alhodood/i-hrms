@@ -1,3 +1,4 @@
+// src/components/FaqSection.tsx
 "use client";
 
 import React, { useState } from "react";
@@ -91,7 +92,7 @@ export default function FaqSection() {
           </h2>
           <p className="mt-3 text-lg text-slate-500 max-w-2xl mx-auto">
             Answers to common questions about setup, features and security for
-            i-HRMS. If you don't find what you need, reach out and we'll help.
+            i-HRMS. If you don&apos;t find what you need, reach out and we&apos;ll help.
           </p>
         </div>
 

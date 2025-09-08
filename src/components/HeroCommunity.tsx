@@ -1,3 +1,7 @@
+// src/components/HeroCommunity.tsx
+"use client";
+
+import Image from "next/image";
 import React from "react";
 
 /**
@@ -133,43 +137,38 @@ export default function HeroCommunity() {
             <div className="absolute inset-0 rounded-[48px] pointer-events-none inner-gradient-blend z-0" />
 
             {/* Avatars - use files in public/avatars/av1.jpg ... av6.jpg */}
-            <img
-              src="/avatars/av1.jpg"
-              alt="avatar 1"
-              className="absolute left-[6%] top-[12%] w-16 h-16 rounded-full border-4 border-black/60 shadow-xl z-20"
-            />
-            <img
-              src="/avatars/av2.jpg"
-              alt="avatar 2"
-              className="absolute left-[30%] top-[6%] w-20 h-20 rounded-full border-4 border-black/60 shadow-2xl z-20"
-            />
-            <img
-              src="/avatars/av3.jpg"
-              alt="avatar 3"
-              className="absolute top-[6%] right-[26%] w-16 h-16 rounded-full border-4 border-black/60 shadow-xl z-20"
-            />
-            <img
-              src="/avatars/av4.jpg"
-              alt="avatar 4"
-              className="absolute left-[14%] bottom-[12%] w-14 h-14 rounded-full border-4 border-black/60 shadow-xl z-20"
-            />
-            <img
-              src="/avatars/av5.jpg"
-              alt="avatar 5"
-              className="absolute right-[10%] bottom-[18%] w-16 h-16 rounded-full border-4 border-black/60 shadow-xl z-20"
-            />
-            <img
-              src="/avatars/av1.jpg"
-              alt="avatar 6"
-              className="absolute left-[54%] bottom-[20%] w-14 h-14 rounded-full border-4 border-black/60 shadow-xl z-20"
-            />
+            <div className="absolute left-[6%] top-[12%] w-16 h-16 rounded-full border-4 border-black/60 shadow-xl z-20 overflow-hidden">
+              <Image src="/avatars/av1.jpg" alt="avatar 1" width={64} height={64} priority />
+            </div>
+
+            <div className="absolute left-[30%] top-[6%] w-20 h-20 rounded-full border-4 border-black/60 shadow-2xl z-20 overflow-hidden">
+              <Image src="/avatars/av2.jpg" alt="avatar 2" width={80} height={80} priority />
+            </div>
+
+            <div className="absolute top-[6%] right-[26%] w-16 h-16 rounded-full border-4 border-black/60 shadow-xl z-20 overflow-hidden">
+              <Image src="/avatars/av3.jpg" alt="avatar 3" width={64} height={64} priority />
+            </div>
+
+            <div className="absolute left-[14%] bottom-[12%] w-14 h-14 rounded-full border-4 border-black/60 shadow-xl z-20 overflow-hidden">
+              <Image src="/avatars/av4.jpg" alt="avatar 4" width={56} height={56} priority />
+            </div>
+
+            <div className="absolute right-[10%] bottom-[18%] w-16 h-16 rounded-full border-4 border-black/60 shadow-xl z-20 overflow-hidden">
+              <Image src="/avatars/av5.jpg" alt="avatar 5" width={64} height={64} priority />
+            </div>
+
+            <div className="absolute left-[54%] bottom-[20%] w-14 h-14 rounded-full border-4 border-black/60 shadow-xl z-20 overflow-hidden">
+              <Image src="/avatars/av1.jpg" alt="avatar 6" width={56} height={56} priority />
+            </div>
 
             {/* CTA (center) */}
             <a
               href="#"
               className="cta-gradient community-cta relative inline-flex items-center gap-3 px-10 py-4 rounded-[999px] font-semibold text-white shadow-cta z-30"
+              // make explicit accessible name
+              aria-label="Join our community - it's free"
             >
-              <span>Join our Community. It’s FREE</span>
+              <span>Join our Community. It&apos;s FREE</span>
               <svg
                 width="18"
                 height="18"

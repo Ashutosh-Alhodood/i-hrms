@@ -288,7 +288,7 @@ export default function CoreHRPage() {
           <div className="text-center max-w-2xl mx-auto">
             <div className="text-sm font-semibold uppercase tracking-wide text-indigo-500">FAQ</div>
             <h2 className="mt-4 text-3xl lg:text-4xl font-extrabold text-slate-900">Frequently asked questions</h2>
-            <p className="mt-3 text-slate-600">Common questions about i-HRMS and GCH's Core HR capabilities.</p>
+            <p className="mt-3 text-slate-600">Common questions about i-HRMS and GCH&apos;s Core HR capabilities.</p>
           </div>
 
           <div className="mt-8 max-w-3xl mx-auto space-y-3">
@@ -331,7 +331,7 @@ export default function CoreHRPage() {
             <div className="text-center max-w-2xl mx-auto">
               <div className="text-xs font-semibold uppercase tracking-wide text-indigo-500">Good bye to repetitive manual work</div>
               <h4 className="mt-4 text-3xl lg:text-4xl font-extrabold text-slate-900">Want to learn more about i-HRMS?</h4>
-              <p className="mt-4 text-slate-600">We'd love to chat about how i-HRMS can support your HR needs — personalized walkthroughs, tailored demos and practical answers from GCH's experts.</p>
+              <p className="mt-4 text-slate-600">We&apos;d love to chat about how i-HRMS can support your HR needs — personalized walkthroughs, tailored demos and practical answers from GCH&apos;s experts.</p>
 
               <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
                 <Link

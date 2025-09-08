@@ -56,7 +56,7 @@ export default function RecruitmentPage() {
               </h1>
 
               <p className="mt-6 text-lg text-slate-200 max-w-2xl">
-                We'll handle compliance, payroll and HR operations. Discover the power of{" "}
+                We&apos;ll handle compliance, payroll and HR operations. Discover the power of{" "}
                 <strong>i-HRMS</strong> by <strong>GCH</strong> — your all-in-one recruitment solution with advanced
                 filters, analytics and automation.
               </p>
@@ -137,7 +137,7 @@ export default function RecruitmentPage() {
                 <div className="text-xs font-semibold text-indigo-300 uppercase">Recruitment</div>
                 <h2 className="mt-3 text-4xl font-extrabold text-white">Advanced Filters, Smarter Hiring</h2>
                 <p className="mt-4 text-slate-300 max-w-xl">
-                  i-HRMS' recruitment suite helps you quickly find the right candidates with advanced filters by skills,
+                  i-HRMS&apos;s recruitment suite helps you quickly find the right candidates with advanced filters by skills,
                   experience, availability and more. Automate shortlists and make collaborative hiring decisions.
                 </p>
               </div>

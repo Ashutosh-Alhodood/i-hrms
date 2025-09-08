@@ -45,7 +45,7 @@ export default function ContactPage() {
                 </a>
 
                 <p className="text-sm text-slate-500 mb-6">
-                  Support hours: Mon–Fri, 09:00–18:00 (UAE time). For urgent issues, please include "URGENT" in the subject.
+                  Support hours: Mon–Fri, 09:00–18:00 (UAE time). For urgent issues, please include &quot;URGENT&quot; in the subject.
                 </p>
 
                 <div>
@@ -185,7 +185,7 @@ export default function ContactPage() {
         <div className="max-w-7xl mx-auto px-6 text-center">
           <div className="rounded-2xl bg-gradient-to-b from-indigo-600 to-indigo-500 p-10 md:p-12 shadow-lg">
             <h4 className="text-lg font-semibold text-white mb-3">Want to learn more about i-HRMS?</h4>
-            <p className="mb-6 text-indigo-100">Book a free demo and we’ll walk you through a tailored product walkthrough for your team.</p>
+            <p className="mb-6 text-indigo-100">Book a free demo and we&apos;ll walk you through a tailored product walkthrough for your team.</p>
             <div className="flex items-center justify-center gap-4">
               <Link href="/contact" className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-white text-indigo-700 font-semibold">
                 Book your Free Demo

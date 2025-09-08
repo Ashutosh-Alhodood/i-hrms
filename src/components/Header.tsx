@@ -1,3 +1,4 @@
+// src/components/Header.tsx
 "use client";
 
 import Image from "next/image";
@@ -120,15 +121,12 @@ function MenuCard({
 
       <ul className="py-2">
         {items.map((item) => {
-          const isMailto = item.href.startsWith("mailto:");
           const isExternal = item.href.startsWith("http");
-          // for mailto and external, render a normal <a>; for internal routes we still use <a>
-          // (we deliberately avoid next/link here to ensure mailto works correctly).
+          // render as normal <a> so mailto: works. For external links open in new tab.
           return (
             <li key={item.title}>
               <a
                 href={item.href}
-                // don't open mailto in new tab; for http open a new tab
                 {...(isExternal ? { target: "_blank", rel: "noopener noreferrer" } : {})}
                 className="flex items-start gap-3 px-4 py-3 hover:bg-white/6 transition rounded-lg"
               >
@@ -253,7 +251,8 @@ export default function Header() {
                 href="/contact"
                 className="inline-flex items-center h-10 px-4 rounded-full text-sm bg-gradient-to-r from-indigo-600 to-indigo-500 text-white shadow-lg"
               >
-                Let's Connect
+                {/* escape apostrophe to satisfy react/no-unescaped-entities */}
+                <span>Let&apos;s Connect</span>
               </Link>
             </div>
           </nav>

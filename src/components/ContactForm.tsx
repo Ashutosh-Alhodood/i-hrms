@@ -1,3 +1,4 @@
+// src/components/ContactForm.tsx
 'use client'
 import { useState } from 'react'
 import axios from 'axios'
@@ -60,9 +61,18 @@ export default function ContactForm() {
       } else {
         setStatus({ ok: false, msg: res.data?.message || 'Unexpected response' })
       }
-    } catch (err: any) {
-      console.error('submit error', err?.response?.data || err?.message || err)
-      setStatus({ ok: false, msg: err?.response?.data?.message || 'Network error. Try again.' })
+    } catch (err: unknown) {
+      // Narrow the unknown to extract useful info without using `any`.
+      // Axios errors often have `response` property.
+      let message = 'Network error. Try again.'
+      if (axios.isAxiosError(err)) {
+        message = err.response?.data?.message || err.message || message
+      } else if (err instanceof Error) {
+        message = err.message
+      }
+      // Log the error for dev debugging
+      console.error('submit error', message)
+      setStatus({ ok: false, msg: message })
     } finally {
       setSubmitting(false)
     }

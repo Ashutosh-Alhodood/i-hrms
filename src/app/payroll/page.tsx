@@ -32,7 +32,7 @@ export default function PayrollPage() {
             <div className="flex items-center gap-3">
               <Link href="/login" className="px-4 py-2 rounded-full bg-white text-black text-sm shadow-sm">Login</Link>
               <Link href="/contact" className="px-4 py-2 rounded-full bg-gradient-to-r from-indigo-600 to-violet-500 text-white text-sm shadow">
-                Let's Connect
+                Let&apos;s Connect
               </Link>
             </div>
           </div>
@@ -82,7 +82,7 @@ export default function PayrollPage() {
                   href="#watch"
                   className="inline-flex items-center gap-2 rounded-full bg-white/10 border border-white/10 text-white px-5 py-3 hover:bg-white/12 transition"
                 >
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" className="opacity-90">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" className="opacity-90" aria-hidden>
                     <path d="M5 3v18l15-9L5 3z" fill="currentColor" />
                   </svg>
                   Watch the Demo
@@ -233,8 +233,6 @@ export default function PayrollPage() {
         </div>
       </section>
 
-      
-
       {/* FAQ + CTA */}
       <section className="py-16 bg-white">
         <div className="max-w-6xl mx-auto px-6">
@@ -283,8 +281,6 @@ export default function PayrollPage() {
           </div>
         </div>
       </section>
-
-      
     </main>
   );
 }

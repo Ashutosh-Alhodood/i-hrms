@@ -1,3 +1,4 @@
+// src/components/Footer.tsx
 "use client";
 
 import React from "react";
@@ -19,7 +20,7 @@ export default function Footer() {
               </div>
 
               <div>
-                <div className="text-white font-semibold">Join the GCH community</div>
+                <div className="text-white font-semibold">Join the community</div>
                 <div className="text-sm text-slate-300 max-w-xl">
                   Share ideas, discuss HR best-practices, and get early access to i-HRMS features and updates.
                 </div>
@@ -44,7 +45,7 @@ export default function Footer() {
           <div className="space-y-3">
             <div className="text-xl font-bold text-white">i-HRMS</div>
             <div className="text-sm text-slate-400 leading-relaxed">
-              i-HRMS by GCH — a modern, all-in-one HRMS built for growing organizations. Attendance, payroll, recruitment and people analytics — all in one place.
+              i-HRMS — a modern, all-in-one HRMS built for growing organizations. Attendance, payroll, recruitment and people analytics — all in one place.
             </div>
 
             <div className="flex items-center gap-3 mt-4">
@@ -80,7 +81,7 @@ export default function Footer() {
           <div>
             <div className="font-medium text-white mb-3">Company</div>
             <ul className="space-y-3 text-sm text-slate-400">
-              <li><a href="/about" className="hover:text-white">About GCH</a></li>
+              <li><a href="/about" className="hover:text-white">About</a></li>
               <li><a href="/careers" className="hover:text-white">Careers</a></li>
               <li><a href="/contact" className="hover:text-white">Contact</a></li>
             </ul>
@@ -95,7 +96,7 @@ export default function Footer() {
 
             <div className="mt-4">
               <a href="/contact" className="inline-flex items-center gap-2 bg-emerald-500 text-white px-4 py-2 rounded-md shadow hover:brightness-105 transition">
-                Let's Connect
+                Contact us
               </a>
             </div>
           </div>
@@ -105,7 +106,7 @@ export default function Footer() {
       {/* Copyright / bottom bar */}
       <div className="border-t border-white/6">
         <div className="max-w-7xl mx-auto px-6 py-5 text-sm text-slate-400 flex flex-col md:flex-row items-center justify-between gap-3">
-          <div>© {new Date().getFullYear()} GCH — i-HRMS. All rights reserved.</div>
+          <div>© {new Date().getFullYear()} i-HRMS. All rights reserved.</div>
           <div className="flex items-center gap-4">
             <a href="/privacy" className="hover:text-white">Privacy</a>
             <a href="/terms" className="hover:text-white">Terms</a>

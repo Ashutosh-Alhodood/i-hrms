@@ -34,8 +34,18 @@ export default function FeaturesSection() {
               </ul>
 
               <div className="testimonial">
-                <img className="avatar" src="/images/avatar-khaleel.jpg" alt="Khaleel Zakir" />
-                <div>
+                {/* replaced <img> with next/image */}
+                <div className="avatar-wrapper" style={{ width: 48, height: 48, position: 'relative' }}>
+                  <Image
+                    src="/images/avatar-khaleel.jpg"
+                    alt="Ashutosh Patil avatar"
+                    fill
+                    sizes="48px"
+                    style={{ objectFit: 'cover', borderRadius: 8 }}
+                  />
+                </div>
+
+                <div style={{ marginLeft: 12 }}>
                   <div style={{ fontWeight: 700 }}>Ashutosh Patil</div>
                   <div className="text-muted">Director, NIMS Dubai</div>
                 </div>
@@ -49,6 +59,7 @@ export default function FeaturesSection() {
                 width={920}
                 height={520}
                 sizes="(max-width: 1024px) 100vw, 520px"
+                priority
               />
             </div>
           </div>
@@ -64,6 +75,7 @@ export default function FeaturesSection() {
                 width={920}
                 height={520}
                 sizes="(max-width: 1024px) 100vw, 520px"
+                priority
               />
             </div>
 
@@ -81,8 +93,17 @@ export default function FeaturesSection() {
               </ul>
 
               <div className="testimonial">
-                <img className="avatar" src="/images/avatar-rineesh.jpg" alt="Rineesh Rafeek" />
-                <div>
+                <div className="avatar-wrapper" style={{ width: 48, height: 48, position: 'relative' }}>
+                  <Image
+                    src="/images/avatar-rineesh.jpg"
+                    alt="Rineesh Rafeek avatar"
+                    fill
+                    sizes="48px"
+                    style={{ objectFit: 'cover', borderRadius: 8 }}
+                  />
+                </div>
+
+                <div style={{ marginLeft: 12 }}>
                   <div style={{ fontWeight: 700 }}>Ashutosh Patil</div>
                   <div className="text-muted">General Manager, Imprint LLC Dubai</div>
                 </div>
@@ -108,8 +129,17 @@ export default function FeaturesSection() {
               </ul>
 
               <div className="testimonial">
-                <img className="avatar" src="/images/avatar-bindu.jpg" alt="Bindu Joseph" />
-                <div>
+                <div className="avatar-wrapper" style={{ width: 48, height: 48, position: 'relative' }}>
+                  <Image
+                    src="/images/avatar-bindu.jpg"
+                    alt="Bindu Joseph avatar"
+                    fill
+                    sizes="48px"
+                    style={{ objectFit: 'cover', borderRadius: 8 }}
+                  />
+                </div>
+
+                <div style={{ marginLeft: 12 }}>
                   <div style={{ fontWeight: 700 }}>Ashutosh Patil</div>
                   <div className="text-muted">Center Manager, Seedse Dubai</div>
                 </div>
@@ -123,6 +153,7 @@ export default function FeaturesSection() {
                 width={920}
                 height={520}
                 sizes="(max-width: 1024px) 100vw, 520px"
+                priority
               />
             </div>
           </div>
