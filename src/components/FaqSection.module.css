@@ -1,0 +1,194 @@
+/* pastel card backdrop and soft volumetric shadows to match the reference */
+.wrap {
+  /* subtle page-level gradient (very light) */
+  background: linear-gradient(180deg, #ffffff 0%, #ffffff 100%);
+}
+
+/* big rounded container with pastel gradient and blur */
+.panel {
+  background: linear-gradient(180deg, rgba(255,255,255,0.9), rgba(245,250,255,0.85));
+  /* gentle border */
+  border: 1px solid rgba(15, 23, 42, 0.03);
+  border-radius: 18px;
+  box-shadow:
+    0 18px 40px rgba(12, 14, 18, 0.06),
+    0 6px 18px rgba(11, 20, 40, 0.04),
+    inset 0 1px 0 rgba(255,255,255,0.6);
+}
+
+/* give a soft inner gradient tint similar to the design */
+.panel::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  border-radius: 18px;
+  pointer-events: none;
+  background: radial-gradient(800px 200px at 18% 10%, rgba(255,230,230,0.25), transparent 8%),
+              radial-gradient(800px 200px at 82% 20%, rgba(230,245,255,0.25), transparent 8%);
+  mix-blend-mode: overlay;
+}
+
+/* category buttons & accordions already styled with Tailwind.
+   keep some module-level helpers for responsive adjustments */
+@media (max-width: 1024px) {
+  .panel {
+    padding: 18px;
+  }
+}
+
+/* small visual reset for accordion transitions */
+.panel .max-h-0 { max-height: 0; }
+.panel .max-h-96 { max-height: 24rem; }
+
+/* Outer subtle page tint */
+.outer {
+  background: linear-gradient(180deg, #ffffff 0%, #fbfdff 100%);
+}
+
+/* main glass card */
+.cardWrap {
+  position: relative;
+  border-radius: 20px;
+  padding: 28px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.86), rgba(245,250,255,0.84));
+  border: 1px solid rgba(15, 23, 42, 0.04);
+  box-shadow:
+    0 40px 80px rgba(15, 23, 42, 0.06),
+    0 10px 30px rgba(15, 23, 42, 0.04),
+    inset 0 1px 0 rgba(255,255,255,0.6);
+  overflow: visible;
+}
+
+/* subtle decorative radial tint top-left / right */
+.cardWrap::before {
+  content: "";
+  position: absolute;
+  inset: -30px -30px auto auto;
+  width: 360px;
+  height: 260px;
+  border-radius: 40%;
+  background: radial-gradient(closest-side, rgba(124, 58, 237, 0.06), transparent 35%);
+  pointer-events: none;
+  filter: blur(30px);
+  transform: translateX(-20px);
+}
+.cardWrap::after {
+  content: "";
+  position: absolute;
+  right: -20px;
+  bottom: -40px;
+  width: 360px;
+  height: 260px;
+  border-radius: 40%;
+  background: radial-gradient(closest-side, rgba(79, 70, 229, 0.04), transparent 35%);
+  pointer-events: none;
+  filter: blur(28px);
+}
+
+/* category button */
+.catBtn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 18px 18px;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.7);
+  border: 1px solid rgba(15, 23, 42, 0.03);
+  transition: transform .22s ease, box-shadow .22s ease, background .22s ease;
+  cursor: pointer;
+}
+.catBtn:hover { transform: translateY(-6px); box-shadow: 0 14px 32px rgba(12,14,18,0.06); }
+.catActive {
+  background: linear-gradient(90deg, rgba(255,255,255,1), rgba(246,250,255,0.98));
+  border: 1px solid rgba(15,23,42,0.06);
+  box-shadow: 0 18px 48px rgba(12,14,18,0.06);
+}
+
+/* small colored dot to the left of category */
+.catDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: #0f172a;
+  box-shadow: 0 6px 20px rgba(15,23,42,0.06);
+}
+
+/* chevron alignment area */
+.chevWrap {
+  width: 36px; height: 36px; display:flex; align-items:center; justify-content:center;
+  border-radius: 10px; background: rgba(255,255,255,0.8); border: 1px solid rgba(15,23,42,0.03);
+}
+
+/* accordion item */
+.accordion {
+  border-radius: 12px;
+  overflow: hidden;
+  background: rgba(255,255,255,0.75);
+  border: 1px solid rgba(15, 23, 42, 0.03);
+  transition: transform .28s cubic-bezier(.2,.9,.2,1), box-shadow .28s;
+}
+.accordion + .accordion { margin-top: 8px; }
+
+.accordion:hover { transform: translateY(-6px); box-shadow: 0 18px 40px rgba(12,14,18,0.05); }
+
+/* header toggle */
+.accordionToggle {
+  width: 100%;
+  padding: 18px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap: 12px;
+  background: transparent;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+}
+
+/* icon box on the right */
+.iconBox {
+  width: 52px;
+  height: 52px;
+  border-radius: 12px;
+  display:flex;
+  align-items:center; justify-content:center;
+  background: rgba(255,255,255,0.9);
+  border: 1px solid rgba(15,23,42,0.03);
+}
+
+/* answer wrapper with smooth expand */
+.answerWrap {
+  padding: 0 18px 18px 18px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height .36s cubic-bezier(.2,.9,.2,1), opacity .3s ease;
+  opacity: 0;
+}
+.open .answerWrap {
+  max-height: 240px;
+  opacity: 1;
+}
+
+/* pager dots */
+.pagerDot {
+  width: 10px; height: 10px; border-radius: 999px;
+  background: rgba(15,23,42,0.06);
+  border: 1px solid rgba(255,255,255,0.6);
+  transition: transform .18s ease, background .18s ease;
+}
+.pagerActive {
+  background: linear-gradient(90deg,#6f5cff,#4750ff);
+  box-shadow: 0 8px 18px rgba(79,70,229,0.12);
+  transform: translateY(-3px);
+}
+
+/* responsive tweaks */
+@media (max-width: 1024px) {
+  .cardWrap { padding: 18px; }
+  .catBtn { padding: 14px; }
+  .chevWrap { width: 36px; height: 36px; }
+}

@@ -1,0 +1,206 @@
+/* general section bg */
+.sectionBg {
+  background: linear-gradient(180deg, #080808 0%, #0b0b0b 100%);
+  position: relative;
+  overflow: visible;
+}
+
+/* phone shell style - subtle rim + glow */
+.phoneShell {
+  border-radius: 36px;
+  padding: 12px;
+  background: transparent; /* removed black container behind phone */
+  box-shadow: 0 24px 80px rgba(0,0,0,0.55), inset 0 1px 0 rgba(255,255,255,0.02);
+  transform-origin: center;
+  transition: transform 560ms cubic-bezier(.2,.9,.2,1), box-shadow 480ms ease;
+}
+
+/* animate into view */
+.phoneIn {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 36px 120px rgba(0,0,0,0.6);
+}
+
+/* phone frame (actual visible phone) */
+.phoneFrame {
+  width: 100%;
+  max-width: 360px;
+  height: 560px;
+  border-radius: 36px;
+  border: 3px solid rgba(255,255,255,0.06);
+  box-shadow: 0 30px 60px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.02);
+  overflow: hidden;
+  position: relative;
+  background: linear-gradient(180deg, rgba(6,6,6,0.95), rgba(18,18,18,0.9));
+}
+
+/* top notch / camera */
+.topNotch {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 8px;
+  width: 36px;
+  height: 8px;
+  border-radius: 8px;
+  background: rgba(255,255,255,0.04);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.6);
+  z-index: 10;
+}
+
+/* inner phone screen */
+.phoneScreen {
+  position: absolute;
+  inset: 12px;
+  border-radius: 28px;
+  overflow: hidden;
+  background: linear-gradient(180deg, #0b1224 0%, #06060a 100%);
+  display: flex;
+  flex-direction: column;
+  padding: 18px;
+  gap: 12px;
+}
+
+/* top card inside phone */
+.appTopCard {
+  display:flex;
+  align-items:center;
+  gap:12px;
+  color: white;
+  justify-content:space-between;
+}
+.avatarCircle {
+  width:46px;
+  height:46px;
+  border-radius: 10px;
+  background: linear-gradient(90deg,#ff9a9e,#a18cd1);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+}
+.appTitle { font-weight:700; font-size:14px; color:#fff; }
+.appSubtitle { font-size:12px; color:rgba(255,255,255,0.72); }
+
+/* coming soon badge (inside phone) */
+.comingSoon {
+  position: relative;
+  display:flex;
+  align-items:center;
+  gap:8px;
+  padding:6px 8px;
+  border-radius:999px;
+  background: rgba(255,255,255,0.03);
+  color: #fff;
+  font-weight:600;
+  font-size:12px;
+}
+.pulseDot {
+  width:10px; height:10px; border-radius:50%;
+  background: #7cffb2;
+  box-shadow: 0 6px 20px rgba(124,255,178,0.18);
+  animation: pulse 1.6s infinite;
+}
+@keyframes pulse {
+  0% { transform: scale(.9); opacity: .9;}
+  50% { transform: scale(1.25); opacity: .6;}
+  100% { transform: scale(.9); opacity: .9;}
+}
+
+/* center content in phone */
+.appCenterArea { flex:1; display:flex; flex-direction:column; gap:12px; align-items:center; justify-content:center; }
+
+/* checkin pill */
+.checkinPill {
+  background: linear-gradient(90deg,#6f5cff,#4750ff);
+  color:white;
+  padding:10px 22px;
+  border-radius:999px;
+  font-weight:700;
+  box-shadow: 0 6px 18px rgba(71,80,255,0.18);
+}
+
+/* calendar mock grid */
+.calendarMock {
+  display:grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap:8px;
+  width:100%;
+  max-width: 240px;
+  padding:12px;
+  border-radius:12px;
+  background: linear-gradient(180deg, rgba(0,0,0,0.18), rgba(255,255,255,0.02));
+  justify-items:center;
+}
+.calendarDot {
+  width:22px; height:22px; border-radius:6px;
+  background: rgba(255,255,255,0.06);
+  transition: transform .4s ease, background .4s ease;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.45) inset;
+}
+.calendarMock .calendarDot:nth-child(3n) { background: #6f5cff; transform: translateY(-2px); box-shadow: 0 8px 20px rgba(111,92,255,0.12); }
+.calendarMock .calendarDot:nth-child(5n) { background: #ff7ab6; transform: translateY(2px); }
+
+/* bottom area / nav */
+.appBottom { padding-bottom:6px; }
+.bottomNav { display:flex; gap:10px; justify-content:center; align-items:center; padding-top:6px; }
+.navIcon { width:44px; height:44px; border-radius:10px; background: rgba(255,255,255,0.04); }
+
+/* phone bottom chin */
+.bottomChin {
+  position:absolute;
+  left:50%;
+  transform:translateX(-50%);
+  bottom:6px;
+  width:70%;
+  height:6px;
+  border-radius:10px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+}
+
+/* glowing coming soon text under phone */
+.comingGlowContainer {
+  display:flex;
+  justify-content:center;
+  margin-top:14px;
+}
+.comingGlow {
+  color: #a8b3ff;
+  font-weight:700;
+  padding:8px 14px;
+  border-radius:999px;
+  text-transform: none;
+  letter-spacing: 0.2px;
+  background: linear-gradient(180deg, rgba(111,92,255,0.06), rgba(71,80,255,0.02));
+  box-shadow: 0 10px 40px rgba(71,80,255,0.08), 0 2px 8px rgba(71,80,255,0.04) inset;
+  text-shadow: 0 6px 30px rgba(111,92,255,0.18);
+  animation: glowPulse 2.6s ease-in-out infinite;
+}
+@keyframes glowPulse {
+  0% { transform: translateY(0); box-shadow: 0 10px 40px rgba(71,80,255,0.04), 0 2px 8px rgba(71,80,255,0.02) inset; }
+  50% { transform: translateY(-4px); box-shadow: 0 28px 80px rgba(71,80,255,0.12), 0 2px 8px rgba(71,80,255,0.04) inset; }
+  100% { transform: translateY(0); }
+}
+
+/* card styles & hover */
+.card {
+  background: rgba(0,0,0,0.6);
+  border: 1px solid rgba(148,163,184,0.08);
+  transition: background 220ms ease, border-color 220ms ease, transform 220ms ease, box-shadow 200ms;
+}
+.card:focus,
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 40px rgba(2,6,23,0.6);
+}
+
+/* left / right column z-index to visually sit above phone */
+.leftColumn,
+.rightColumn {
+  z-index: 20;
+}
+
+/* responsive tweaks */
+@media (max-width: 1024px) {
+  .phoneShell { transform: none !important; opacity: 1 !important; }
+  .calendarDot { width: 16px; height: 16px; }
+  .phoneFrame { height: 520px; }
+  .comingGlow { display:block; font-size:13px; padding:6px 10px; }
+}

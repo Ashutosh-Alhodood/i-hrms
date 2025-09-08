@@ -1,26 +1,287 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
+/* --------------------------------------------
+   Design tokens
+   -------------------------------------------- */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --brand: #16b67f;
+  --accent: #6f5cff;
+  --bg: #000000;
+  --muted: #94a3b8;
+  --heading: #0b1320; /* for light pages headings */
+  --heading-dark: #ffffff; /* for dark pages */
+  --card-soft-start: #f6ecfb; /* pale purple */
+  --card-soft-end:  #f3f2fb; /* subtle end */
+  --card-soft-blue-start: #eef7fa; /* pale blue alt */
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* --------------------------------------------
+   Base resets & typography
+   -------------------------------------------- */
+html, body, #__next { height: 100%; }
+body {
+  @apply bg-black text-slate-100 font-sans;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* global typography for light sections */
+h1, h2, h3 { color: var(--heading); }
+h1 { font-size: clamp(1.875rem, 2.2vw + 1.2rem, 3rem); line-height: 1.05; }
+h2 { font-size: clamp(1.25rem, 1.6vw + 0.8rem, 1.875rem); }
+p  { color: var(--muted); }
+
+/* --------------------------------------------
+   Shared helpers
+   -------------------------------------------- */
+.section { @apply py-20 px-6 md:px-10 lg:px-20; }
+.container-wide { max-width: 1200px; margin-left:auto; margin-right:auto; }
+
+/* --------------------------------------------
+   Header / nav tokens (kept from earlier)
+   -------------------------------------------- */
+/* ... keep existing header tokens if you have them ... */
+
+/* --------------------------------------------
+   Feature section specific styles
+   -------------------------------------------- */
+
+/* Root wrapper for the features area */
+.features-section {
+  /* this section sits on white/light background - set to white by default */
+  background: white;
+  color: var(--heading);
+  padding-top: 48px;
+  padding-bottom: 48px;
+}
+
+/* Hero title block at top of the features section */
+.features-header {
+  text-align: center;
+  margin-bottom: 28px;
+}
+.features-header .badge {
+  display: inline-block;
+  background: #9fe9dd; /* mint badge like original */
+  color: #044; 
+  padding: .45rem .9rem;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: .8rem;
+  margin-bottom: .75rem;
+  box-shadow: 0 6px 18px rgba(111, 60, 255, 0.04);
+}
+
+/* Card wrapper - full-width card with 50px left/right padding inside page container */
+.feature-card {
+  margin: 28px 0;
+  border-radius: 18px;
+  overflow: visible;
+  padding: 50px; /* important: 50px spacing inside the card */
+  display: block;
+  box-shadow: 0 8px 36px rgba(2,6,23,0.06);
+  background: linear-gradient(180deg, var(--card-soft-start), var(--card-soft-end));
+  border: 1px solid rgba(15, 23, 42, 0.03);
+}
+
+/* Make the card visually full width by removing container cap on the inner elements.
+   You still place the .feature-card inside a page container; padding keeps it from touching viewport edges. */
+.feature-card-inner {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  display: grid;
+  grid-template-columns: 1fr 520px; /* text left / image right layout on desktop */
+  gap: 36px;
+  align-items: center;
+}
+
+/* left column text */
+.feature-card .feature-copy {
+  padding-right: 18px;
+}
+
+/* small badge inside the card (e.g., "RECRUITMENT" / "PAYROLL") */
+.feature-card .pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: .35rem .75rem;
+  border-radius: 999px;
+  background: #fff;
+  color: #111827;
+  border: 1px solid rgba(15, 23, 42, 0.04);
+  font-weight: 700;
+  font-size: 0.78rem;
+  margin-bottom: 12px;
+}
+
+/* feature heading text */
+.feature-card h3 {
+  font-size: clamp(1.5rem, 2vw + 1rem, 2.25rem);
+  line-height: 1.02;
+  color: var(--heading);
+  margin: 6px 0 14px 0;
+}
+
+/* lead paragraph */
+.feature-card p.lead {
+  color: rgba(13, 18, 28, 0.72);
+  margin-bottom: 18px;
+}
+
+/* feature bullets styling */
+.feature-card ul.features-list {
+  margin-top: 6px;
+  margin-bottom: 20px;
+  list-style: none;
+  padding-left: 0;
+}
+.feature-card ul.features-list li {
+  position: relative;
+  padding-left: 28px;
+  margin-bottom: 10px;
+  color: rgba(13,18,28,0.78);
+}
+.feature-card ul.features-list li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #6f5cff;
+  background: rgba(111,92,255,0.10);
+  border-radius: 999px;
+  width: 22px; height: 22px; 
+  display:flex; align-items:center; justify-content:center;
+  font-size: 12px;
+}
+
+/* testimonial row inside card */
+.feature-card .testimonial {
+  margin-top: 22px;
+  display:flex;
+  align-items:center;
+  gap: 16px;
+  color: rgba(13,18,28,0.8);
+}
+.feature-card .testimonial img.avatar {
+  width:44px; height:44px; border-radius:999px; object-fit:cover; box-shadow:none; border: 3px solid rgba(111,60,255,0.03);
+}
+
+/* right column image container */
+.feature-card .feature-visual {
+  display:block;
+  background: transparent;
+  border-radius: 12px;
+  overflow: hidden;
+  padding: 8px;
+}
+.feature-card .feature-visual img {
+  width:100%;
+  height:auto;
+  display:block;
+  border-radius: 12px;
+  filter: none;
+  transform: none;
+  box-shadow: 0 10px 30px rgba(2,6,23,0.06);
+}
+
+/* Alternate card background — pale blue (for next card) */
+.feature-card.alt {
+  background: linear-gradient(180deg, var(--card-soft-blue-start), #f6fafc);
+}
+
+/* responsive: stack on smaller screens */
+@media (max-width: 992px) {
+  .feature-card-inner {
+    grid-template-columns: 1fr; /* stack */
+  }
+  .feature-card {
+    padding: 28px;
+  }
+  .feature-card .feature-visual {
+    margin-top: 20px;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* small tweaks for dark header overlay scenarios */
+.header-overlay-buffer {
+  padding-top: 28px;
+}
+
+/* keep global accessible focus */
+:focus { outline: none; }
+button:focus, a:focus { outline: 0; box-shadow: 0 0 0 4px rgba(111, 60, 255, 0.08); border-radius: 6px; }
+
+/* misc utility */
+.text-muted { color: rgba(13,18,28,0.55); }
+
+/* Reverse layout: image left, text right */
+.feature-card.reverse .feature-card-inner {
+  grid-template-columns: 520px 1fr; /* image first */
+}
+.feature-card.reverse .feature-copy {
+  order: 2;
+  padding-right: 0;
+  padding-left: 18px;
+}
+.feature-card.reverse .feature-visual {
+  order: 1;
+}
+
+/* in global.css (or a separate file imported globally) */
+.transition-width {
+  transition: width 320ms linear;
+}
+
+/* small custom styles for gradient progress fill and shell */
+
+.progressShell {
+  width: 100%;
+  height: 8px;
+  background: linear-gradient(180deg, rgba(15,23,42,0.03), rgba(15,23,42,0.02));
+  border-radius: 999px;
+  overflow: hidden;
+  position: relative;
+  border: 1px solid rgba(15,23,42,0.03);
+}
+
+.progressFill {
+  height: 100%;
+  width: 0%;
+  transition: width 120ms linear;
+  background-image: linear-gradient(90deg,#6f5cff 0%,#4750ff 50%, #16b67f 100%);
+  box-shadow: 0 6px 18px rgba(71,80,255,0.12), inset 0 -3px 8px rgba(0,0,0,0.06);
+  border-radius: 999px;
+}
+
+.mobileCard {
+  @apply bg-gradient-to-br from-slate-900 to-slate-800 rounded-xl p-6 transition-all duration-300 shadow-lg border border-slate-700;
+}
+
+.mobileCard:hover {
+  @apply text-black scale-[1.02];
+}
+
+.mobileCard.green:hover { background-color: #22c55e; }   /* Green */
+.mobileCard.red:hover { background-color: #ef4444; }     /* Red */
+.mobileCard.pink:hover { background-color: #ec4899; }    /* Pink */
+.mobileCard.purple:hover { background-color: #8b5cf6; }  /* Purple */
+
+/* optional: subtle pulsing glow after modal opens */
+.demo-modal-glow {
+  animation: pulseGlow 3s ease-in-out infinite;
+}
+@keyframes pulseGlow {
+  0% { box-shadow: 0 18px 40px rgba(2,6,23,0.6), 0 0 0 3px rgba(111,92,255,0.08); }
+  50% { box-shadow: 0 22px 48px rgba(2,6,23,0.6), 0 0 0 6px rgba(111,92,255,0.10); }
+  100% { box-shadow: 0 18px 40px rgba(2,6,23,0.6), 0 0 0 3px rgba(111,92,255,0.08); }
+}
+
+/* put into globals.css or Header.module.css (adjust selector if module) */
+.nav-tab { transition: color .12s ease; }
+@media (prefers-reduced-motion: no-preference) {
+  .nav-tab + div { transition: transform .14s ease, opacity .14s ease; }
 }
