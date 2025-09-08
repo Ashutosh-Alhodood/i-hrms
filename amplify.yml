@@ -3,13 +3,11 @@ frontend:
   phases:
     preBuild:
       commands:
-        - node -v
         - npm ci
     build:
       commands:
         - npm run build
   artifacts:
-    # Amplify will publish the static files inside "out"
     baseDirectory: out
     files:
       - '**/*'
